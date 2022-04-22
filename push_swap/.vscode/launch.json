@@ -1,0 +1,21 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "gcc - Etkin dosyayı derle ve dosyada hata ayıkla",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceRoot}/a.out",
+			"args": ["1 2 3 4 5 4 3 2 1 2 3 2 2 1"],
+			"stopAtEntry": false,
+			"cwd": "${fileDirname}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "lldb",
+			"preLaunchTask": "C/C++: gcc etkin dosyayı derle"
+		}
+	]
+}
