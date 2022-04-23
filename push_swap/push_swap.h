@@ -6,7 +6,7 @@
 /*   By: akarabay <akarabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:38:16 by akarabay          #+#    #+#             */
-/*   Updated: 2022/04/19 00:00:52 by akarabay         ###   ########.fr       */
+/*   Updated: 2022/04/23 16:09:18 by akarabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	swap_together(t_data *data_a, t_data *data_b, int control);
 void	sort_smaller_list(t_data *data_a, t_data *data_b);
 void	error_mes(t_data *data_a, t_data *data_b);
 void	send_b(t_data *data_a, t_data *data_b);
-void	find_sort_path(t_data *data_a, t_data *data_b, int *index_a, int *index_b);
+void	find_sort_path(t_data *data_a, t_data *data_b, \
+int *index_a, int *index_b);
 void	check_double(t_data *data_a, t_data *data_b);
 void	check_listed(t_data *data_a, t_data *data_b);
 void	for_two_args(char *str, t_data *data_a, t_data *data_b);

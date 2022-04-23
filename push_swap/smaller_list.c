@@ -6,7 +6,7 @@
 /*   By: akarabay <akarabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:38:45 by akarabay          #+#    #+#             */
-/*   Updated: 2022/04/18 23:45:29 by akarabay         ###   ########.fr       */
+/*   Updated: 2022/04/23 16:34:22 by akarabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	sort_three_args(t_data *data_a, t_data *data_b)
 		if (data_a->array[data_a->size - 2] == 2)
 		{
 			push(data_a, data_b);
-			if (data_a->array[data_a->size - 1] > data_a->array[data_a->size - 2])
+			if (data_a->array[data_a->size - 1] > \
+			data_a->array[data_a->size - 2])
 				swap(data_a, 0);
 			push(data_b, data_a);
 		}

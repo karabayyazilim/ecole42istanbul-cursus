@@ -6,7 +6,7 @@
 /*   By: akarabay <akarabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:38:38 by akarabay          #+#    #+#             */
-/*   Updated: 2022/04/18 23:59:57 by akarabay         ###   ########.fr       */
+/*   Updated: 2022/04/23 16:09:18 by akarabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ int	number_counter(char *str, t_data *data_a, t_data *data_b)
 	{
 		while (str[index] == ' ' || str[index] == '\t')
 			index++;
-		if ((str[index] >= '0' && str[index] <= '9') || (str[index] == '-' || str[index] == '+'))
+		if ((str[index] >= '0' && str[index] <= '9') || \
+		(str[index] == '-' || str[index] == '+'))
 			counter++;
 		else
 			error_mes(data_a, data_b);
-		while ((str[index] >= '0' && str[index] <= '9') || (str[index] == '-' || str[index] == '+'))
+		while ((str[index] >= '0' && str[index] <= '9') || \
+		(str[index] == '-' || str[index] == '+'))
 			index++;
 	}
 	return (counter);
@@ -79,9 +81,12 @@ void	for_two_args(char *str, t_data *data_a, t_data *data_b)
 	{
 		while (str[index] == ' ' || str[index] == '\t')
 			index++;
-		if ((str[index] >= '0' && str[index] <= '9') || (str[index] == '-' || str[index] == '+'))
-			data_a->array[total_number - 1 - number_index++] = ft_atoi(str + index, data_a, data_b);
-		while ((str[index] >= '0' && str[index] <= '9') || (str[index] == '-' || str[index] == '+'))
+		if ((str[index] >= '0' && str[index] <= '9') || \
+		(str[index] == '-' || str[index] == '+'))
+			data_a->array[total_number - 1 - number_index++] = \
+			ft_atoi(str + index, data_a, data_b);
+		while ((str[index] >= '0' && str[index] <= '9') || \
+		(str[index] == '-' || str[index] == '+'))
 			index++;
 	}
 }

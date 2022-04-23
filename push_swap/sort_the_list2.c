@@ -6,13 +6,14 @@
 /*   By: akarabay <akarabay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:38:58 by akarabay          #+#    #+#             */
-/*   Updated: 2022/04/17 19:31:53 by akarabay         ###   ########.fr       */
+/*   Updated: 2022/04/23 16:09:20 by akarabay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	before_single_rotate(t_data *data_a, t_data *data_b, int *index_a, int *index_b)
+void	before_single_rotate(t_data *data_a, t_data *data_b, \
+int *index_a, int *index_b)
 {
 	if (*index_a < (data_a->size / 2) && *index_b < (data_b->size / 2))
 	{
@@ -25,7 +26,8 @@ void	before_single_rotate(t_data *data_a, t_data *data_b, int *index_a, int *ind
 	}
 	else if (*index_a >= (data_a->size / 2) && *index_b >= (data_b->size / 2))
 	{
-		while (*index_a < data_a->size && *index_b < data_b->size && *index_a != 0 && *index_b != 0)
+		while (*index_a < data_a->size && *index_b < \
+		data_b->size && *index_a != 0 && *index_b != 0)
 		{
 			rev_rotate_together(data_a, data_b, 0);
 			*index_a += 1;
