@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: akarabay <akarabay@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/08/28 18:42:58 by akarabay          #+#    #+#              #
+#    Updated: 2022/08/28 18:43:35 by akarabay         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME	=	philo
 SRCS	=	philosophers.c	philo_tools.c	philo_utils.c	philo_behaviours.c	philo_check.c
 

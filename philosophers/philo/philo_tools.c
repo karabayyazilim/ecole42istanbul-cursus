@@ -1,26 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo_tools.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akarabay <akarabay@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/28 18:43:16 by akarabay          #+#    #+#             */
+/*   Updated: 2022/08/28 18:43:35 by akarabay         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
 
 int	arg_check(char **av)
 {
-    int	index;
-    int	arg;
+	int	index;
+	int	arg;
 
-    arg = 1;
-    if (ft_atoi(av[1]) == 0)
-        return (0);
-    while (av[arg])
-    {
-        index = 0;
-        while (av[arg][index])
-        {
-            if (av[arg][index] >= '0' && av[arg][index] <= '9')
-                index++;
-            else
-                return (0);
-        }
-        arg++;
-    }
-    return (1);
+	arg = 1;
+	if (ft_atoi(av[1]) == 0)
+		return (0);
+	while (av[arg])
+	{
+		index = 0;
+		while (av[arg][index])
+		{
+			if (av[arg][index] >= '0' && av[arg][index] <= '9')
+				index++;
+			else
+				return (0);
+		}
+		arg++;
+	}
+	return (1);
 }
 
 void	mini_set(t_phdata *ph_data, char **av)
@@ -47,12 +59,12 @@ void	mini_set(t_phdata *ph_data, char **av)
 void	ft_mutex_init(t_phdata *ph_data, char **av)
 {
 	pthread_mutex_t	*forks;
-	int				i;
+	int				index;
 
-	i = 0;
+	index = 0;
 	forks = malloc(sizeof(pthread_mutex_t) * ft_atoi(av[1]));
-	while (i < ft_atoi(av[1]))
-		pthread_mutex_init(&forks[i++], NULL);
+	while (index < ft_atoi(av[1]))
+		pthread_mutex_init(&forks[index++], NULL);
 	ph_data->fork = forks;
 }
 
