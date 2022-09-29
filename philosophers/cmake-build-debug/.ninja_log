@@ -1,7 +1,0 @@
-# ninja log v5
-1	446	1661534780000000000	CMakeFiles/philosophers.dir/philo/philosophers.c.o	97a031068cea4a55
-0	466	1661534780000000000	CMakeFiles/philosophers.dir/philo/philo_behaviours.c.o	74d78075db47369b
-1	467	1661534780000000000	CMakeFiles/philosophers.dir/philo/philo_tools.c.o	c6c8f29f564652f7
-1	467	1661534780000000000	CMakeFiles/philosophers.dir/philo/philo_utils.c.o	adcea706407d4de1
-1	474	1661534780000000000	CMakeFiles/philosophers.dir/philo/philo_check.c.o	f460735a154de562
-474	555	1661534780000000000	philosophers	190e0f0db1a9c4c8

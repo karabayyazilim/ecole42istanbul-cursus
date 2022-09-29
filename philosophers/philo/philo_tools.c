@@ -35,7 +35,7 @@ int	arg_check(char **av)
 	return (1);
 }
 
-void	mini_set(t_phdata *ph_data, char **av)
+static void	initial_value_set(t_phdata *ph_data, char **av)
 {
 	int	index;
 
@@ -82,7 +82,7 @@ void	set_value(t_phdata *ph_data, char **av)
 	pthread_mutex_init(locker, NULL);
 	*die = 0;
 	*full = 0;
-	mini_set(ph_data, av);
+	initial_value_set(ph_data, av);
 	while (++i < ft_atoi(av[1]))
 	{
 		ph_data[i].left_fork = &ph_data->fork[i];

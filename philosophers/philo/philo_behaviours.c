@@ -14,10 +14,10 @@
 
 void	get_time(t_phdata *ph_data)
 {
-	struct timeval	strtsimu;
+	struct timeval	time;
 
-	gettimeofday(&strtsimu, NULL);
-	ph_data->ms = (strtsimu.tv_sec * 1000) + (strtsimu.tv_usec / 1000);
+	gettimeofday(&time, NULL);
+	ph_data->ms = (time.tv_sec * 1000) + (time.tv_usec / 1000);
 	if (ph_data->start == 0)
 		ph_data->start = ph_data->ms;
 	ph_data->current_time = ph_data->ms - ph_data->start;
@@ -25,11 +25,11 @@ void	get_time(t_phdata *ph_data)
 
 int	fake_sleep(t_phdata *ph_data, int time)
 {
-	unsigned long int	crnt_frzn_time;
+	unsigned long int	c_time;
 
 	get_time(ph_data);
-	crnt_frzn_time = ph_data->current_time;
-	while (ph_data->current_time < crnt_frzn_time + time)
+	c_time = ph_data->current_time;
+	while (ph_data->current_time < c_time + time)
 	{
 		get_time(ph_data);
 		if (ph_data->current_time > ph_data->last_eat_philo)

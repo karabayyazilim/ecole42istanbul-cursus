@@ -1,3 +1,0 @@
-/Users/akarabay/Desktop/ecole42istanbul-cursus/philosophers/cmake-build-debug/CMakeFiles/philosophers.dir
-/Users/akarabay/Desktop/ecole42istanbul-cursus/philosophers/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/akarabay/Desktop/ecole42istanbul-cursus/philosophers/cmake-build-debug/CMakeFiles/rebuild_cache.dir
