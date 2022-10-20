@@ -1,8 +1,8 @@
-NAME = weapon
-SRCS = HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
+NAME = template
+SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-CC = g++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror --std=c++98
 RM = rm -rf
 
@@ -20,4 +20,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-

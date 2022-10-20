@@ -1,8 +1,8 @@
 NAME = harlFilter
-SRCS = *.cpp
+SRCS = Harl.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-CC = g++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror --std=c++98
 RM = rm -rf
 

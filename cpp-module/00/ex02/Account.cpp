@@ -12,7 +12,7 @@ using std::cout;
 using std::endl;
 
 Account::Account(int initial_deposit) {
-    _nbDeposits =
+    _nbDeposits = 0;
     _nbWithdrawals = 0;
     _accountIndex = _nbAccounts;
     _amount = initial_deposit;
@@ -48,7 +48,7 @@ void Account::_displayTimestamp() {
 
     tm time = *localtime(&time_now);
     cout << std::setfill('0') << "[" <<
-         std::setw(2) << time.tm_year + 1900 <<
+         std::setw(2) << time_now.tm_year + 1900 <<
          std::setw(2) << time.tm_mon <<
          std::setw(2) << time.tm_mday << "_" <<
          std::setw(2) << time.tm_hour <<

@@ -1,5 +1,5 @@
 NAME = filereplace
-SRCS = *.cpp
+SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 CC = g++

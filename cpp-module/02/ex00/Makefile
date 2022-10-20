@@ -1,9 +1,9 @@
-NAME = account
+NAME = fixed
 
-CC = c++
+CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-SRCS = Account.cpp tests.cpp
+SRCS = *.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
@@ -19,4 +19,6 @@ fclean:	clean
 
 
 re:	fclean $(NAME)
+
+.PHONY: all clean fclean re
 
