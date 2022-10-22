@@ -1,9 +1,9 @@
 NAME = fixed
 
-CC = g++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-SRCS = *.cpp
+SRCS = Fixed.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
@@ -12,11 +12,10 @@ $(NAME): $(OBJS)
 	$(CC) $(SRCS) -o $(NAME) $(CFLAGS)
 
 clean:
-	@$(RM) $(OBJS)
+	$(RM) $(OBJS)
 
 fclean:	clean
-	@$(RM) $(NAME)
-
+	$(RM) $(NAME)
 
 re:	fclean $(NAME)
 
