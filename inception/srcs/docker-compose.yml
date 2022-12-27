@@ -1,0 +1,130 @@
+version: "3.5"
+
+networks:
+  nw:
+    name: my_network42
+    driver: bridge
+
+volumes:
+  wp:
+    driver: local
+    name: wp_volume
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/akarabay/data/wp
+  db:
+    driver: local
+    name: db_volume
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/akarabay/data/db
+
+services:
+ 
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb
+    env_file:
+      - ./.env
+    networks:
+      - nw
+    restart: unless-stopped
+    volumes:
+      - db:/var/lib/mysql
+      
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress
+    env_file:
+      - ./.env
+    networks:
+      - nw
+    depends_on:
+      - mariadb
+    restart: unless-stopped
+    volumes:
+      - wp:/var/www/html
+
+  nginx:
+    container_name: nginx
+    build: ./requirements/nginx
+    env_file:
+      - ./.env
+    ports:
+      - "443:443"
+    depends_on:
+      - mariadb
+      - wordpress
+    volumes:
+      - wp:/var/www/html
+    networks:
+      - nw
+    restart: unless-stopped
+
+  ftp:
+    container_name: ftp
+    build: ./requirements/bonus/ftp
+    env_file:
+      - ./.env
+    networks:
+      - nw
+    depends_on:
+      - nginx
+    restart: unless-stopped
+    volumes:
+      - wp:/var/www/html
+    ports:
+      - "21:21"
+  adminer:
+    container_name: adminer
+    build: ./requirements/bonus/adminer
+    env_file:
+      - ./.env
+    networks:
+      - nw
+    depends_on:
+      - mariadb
+    restart: unless-stopped
+    ports:
+      - "8090:8090"
+
+  redis:
+    container_name: redis
+    build: ./requirements/bonus/redis
+    env_file:
+      - ./.env
+    networks:
+      - nw
+    depends_on:
+      - nginx
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+  static-website:
+    container_name: static-website
+    build: ./requirements/bonus/static-website
+    env_file:
+      - ./.env
+    networks:
+      - nw
+    depends_on:
+      - nginx
+    restart: unless-stopped
+    ports:
+      - "8085:8085"
+
+  dozzle:
+    build:
+      context: requirements/bonus/dozzle
+      dockerfile: Dockerfile
+    container_name: dozzle
+    ports:
+      - "8888:3000"
+    networks:
+      - nw
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
