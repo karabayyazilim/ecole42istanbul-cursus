@@ -77,6 +77,7 @@ services:
       - wp:/var/www/html
     ports:
       - "21:21"
+      - "21100-21110:21100-21110"
   adminer:
     container_name: adminer
     build: ./requirements/bonus/adminer
@@ -115,16 +116,4 @@ services:
     restart: unless-stopped
     ports:
       - "8085:8085"
-
-  dozzle:
-    build:
-      context: requirements/bonus/dozzle
-      dockerfile: Dockerfile
-    container_name: dozzle
-    ports:
-      - "8888:3000"
-    networks:
-      - nw
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
 

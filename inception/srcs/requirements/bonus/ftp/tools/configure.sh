@@ -1,15 +1,17 @@
 #!/bin/sh
 
-if [ ! -f "/etc/vsftpd/vsftpd.conf.bak" ]; then
+if [ ! -f "/etc/vsftpd.userlist" ]; then
 
-    cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.bak
+	mkdir -p /var/run/vsftpd/empty
+	mkdir -p /var/www/html
 
-    adduser --disabled-password --gecos "" $FTP_USER
-    echo "$FTP_USER:$FTP_PASSWORD" | /usr/sbin/chpasswd &> /dev/null
-    chown -R $FTP_USER:$FTP_USER /var/www/html
+	mv /var/www/vsftpd.conf /etc/vsftpd.conf
 
-    echo $FTP_USER | tee -a /etc/vsftpd.userlist &> /dev/null
+	useradd -m -s /bin/bash $FTP_USER
+	echo $FTP_USER > /etc/vsftpd.userlist
+	echo "$FTP_USER:$FTP_PASSWORD" | /usr/sbin/chpasswd &> /dev/null
+	chown -R $FTP_USER:$FTP_USER /var/www/html
+
 fi
 
-echo "FTP started on :21"
-/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
+/usr/sbin/vsftpd /etc/vsftpd.conf
