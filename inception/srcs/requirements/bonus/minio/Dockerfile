@@ -10,9 +10,6 @@ RUN chmod +x /usr/local/bin/minio
 
 VOLUME /data
 
-ENV MINIO_ACCESS_KEY minio
-ENV MINIO_SECRET_KEY minio123
-
 EXPOSE 9000
 
 CMD ["minio", "server", "--console-address", "0.0.0.0:9001", "/data"]
