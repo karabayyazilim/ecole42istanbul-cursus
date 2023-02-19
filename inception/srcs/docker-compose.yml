@@ -117,3 +117,15 @@ services:
     ports:
       - "8085:8085"
 
+  minio:
+    container_name: minio
+    build: ./requirements/bonus/minio
+    env_file:
+      - ./.env
+    networks:
+      - nw
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+
