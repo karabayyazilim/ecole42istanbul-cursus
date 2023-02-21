@@ -2,4 +2,4 @@ CREATE DATABASE IF NOT EXISTS wordpress;
 CREATE USER IF NOT EXISTS 'akarabay'@'%' IDENTIFIED BY '12345';
 GRANT ALL PRIVILEGES ON wordpress.* TO 'akarabay'@'%';
 FLUSH PRIVILEGES;
-ALTER USER 'karabayyazilim'@'localhost' IDENTIFIED BY 'test';
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'test';
